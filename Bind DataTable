@@ -1,0 +1,21 @@
+       $('#grd-pin-code').DataTable({
+                "paging": true,
+                "bDestroy": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "aaData": resultData,
+                "aoColumns": [
+                        { "sTitle": "Code", "mData": "Code" },
+                        { "sTitle": "Description", "mData": "Description" },
+                        {
+                            "mData": null,
+                            "sTitle": "",
+                            mRender: function (data, type, row) {
+                               
+                                return html = '<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-pin-code" title="Edit"  onclick="editPinCode(\'' + data.PinCodeId + '\',\'' + data.Code + '\',\'' + data.Description + '\')"><i class="fa fa-edit" aria-hidden="true"></i></button>' +
+                                       "<button type='button' class='btn btn-sm btn-danger margin-left-5'  title='Delete' " + "onclick='deletePinCode(" + data.PinCodeId + ")'><i class='fa fa-trash' aria-hidden='true'></i></button>";
+                            }
+                        }
+                ],
+            });
